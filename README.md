@@ -59,7 +59,7 @@ An eBay-like e-commerce auction site for guitars that will allow users to post a
 Create a virtual environment
 
 ```bash
-python3 -m venv venv
+python -m venv venv
 ```
 Activate the virtual environment:
 
