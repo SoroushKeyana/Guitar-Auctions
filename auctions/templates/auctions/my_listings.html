@@ -1,0 +1,61 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="auction-listings container">
+
+        <div class="form-group mb-4">
+            <select id="statusFilter" class="form-control" onchange="window.location.href = '?status=' + this.value">
+                <option value="active" {% if status == 'active' %}selected{% endif %}>Active Listings</option>
+                <option value="closed" {% if status == 'closed' %}selected{% endif %}>Closed Listings</option>
+            </select>
+        </div>
+
+        {% if active_listings %}
+            {% for listing in active_listings %}
+            <div class="listing mb-4">
+
+                <div class="image">
+                    <a href="{% url 'listing' id=listing.id %}">
+                        <img src="{{ listing.image_url }}" alt="Image of {{ listing.title }}">
+                    </a>
+                </div>
+
+                <div class="detail">
+                    <a href="{% url 'listing' id=listing.id %}"><h2>{{ listing.title }}</h2></a>
+                    <p class="owner"><strong>Listed by: </strong>{{ listing.owner }}</p>
+                    <p><strong>Price: </strong><span class="price">{{ listing.price }}</span></p>
+                    <p><strong>Category: </strong>{{ listing.category }}</p>
+                    <p><strong>Description: </strong>{{ listing.description }}</p>
+                    <p><strong>Created: </strong>{{ listing.created_date }}</p>
+                    <a class="btn btn-primary detail-button" href="{% url 'listing' id=listing.id %}">Show Item</a>
+                </div>
+
+            </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if closed_listings %}
+            {% for listing in closed_listings %}
+            <div class="listing mb-4">
+
+                <div class="image">
+                    <a href="{% url 'listing' id=listing.id %}">
+                        <img src="{{ listing.image_url }}" alt="Image of {{ listing.title }}">
+                    </a>
+                </div>
+
+                <div class="detail">
+                    <a href="{% url 'listing' id=listing.id %}"><h2>{{ listing.title }}</h2></a>
+                    <p class="owner"><strong>Listed by: </strong>{{ listing.owner }}</p>
+                    <p><strong>Price: </strong><span class="price">{{ listing.price }}</span></p>
+                    <p><strong>Category: </strong>{{ listing.category }}</p>
+                    <p><strong>Description: </strong>{{ listing.description }}</p>
+                    <p><strong>Created: </strong>{{ listing.created_date }}</p>
+                    <a class="btn btn-primary detail-button" href="{% url 'listing' id=listing.id %}">Show Item</a>
+                </div>
+                
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

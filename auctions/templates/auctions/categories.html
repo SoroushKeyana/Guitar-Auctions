@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2 class="mb-4">Categories</h2>
+    <div class="row">
+        {% for category in categories %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-light rounded">
+                <img src="{{ category.image_url|default:'https://via.placeholder.com/300x200?text=No+Image' }}" class="card-img-top" alt="{{ category.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ category.name }}s</h5>
+                    <p class="card-text">{{ category.description }}</p>
+                    <a href="{% url 'category' category.name %}" class="btn btn-primary btn-block">View Listings</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
