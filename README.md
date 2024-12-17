@@ -82,21 +82,25 @@ venv\Scripts\activate
    ```bash
    git clone https://github.com/SoroushKeyana/Guitar-Auctions.git
    ```
+2. Go to Guitar-Auctions directory:
+   ```bash
+    cd Guitar-Auctions
+   ```
 
-3. Install the dependencies:
+4. Install the dependencies:
 
 
     ```bash
     pip install -r requirements.txt
     ```
 
-4. Create .env file: Create a file named .env in the same directory and add the following line to it. Remember to add your secret key to it.
+5. Create .env file: Create a file named .env in the same directory and add the following line to it. Remember to add your secret key to it.
 
     ```bash
     SECRET_KEY='your-generated-secret-key-here'
     ```
 
-5. Run database migrations:
+6. Run database migrations:
 
     ```bash 
     python manage.py makemigrations auctions
