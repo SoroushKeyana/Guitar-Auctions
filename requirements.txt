@@ -1,6 +1,5 @@
 asgiref==3.8.1
 Django==5.1.2
-PySide2==5.15.2.1
 python-decouple==3.8
 python-dotenv==1.0.1
 shiboken2==5.15.2.1
