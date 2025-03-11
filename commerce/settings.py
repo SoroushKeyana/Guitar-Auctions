@@ -30,6 +30,10 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'guitar-auctions.onrender.com', 'http
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://guitar-auctions.onrender.com',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
